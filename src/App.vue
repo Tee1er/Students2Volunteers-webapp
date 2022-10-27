@@ -21,13 +21,14 @@ export default {
 #app {
   display: flex;
   height: 100%;
+  min-width: 100vw;
 }
 
 hr {
   border: 1px solid var(--gray);
-  margin: 0.5rem 0;
 }
-</style>
-<style scoped>
-.sidebar {}
+
+.root {
+  margin: 2rem;
+}
 </style>

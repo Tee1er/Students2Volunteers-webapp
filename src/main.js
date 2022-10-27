@@ -39,3 +39,12 @@ if (!localStorage.getItem("allInterests")) {
     ]
     localStorage.setItem("allInterests", JSON.stringify(interests));
 }
+
+if (!localStorage.getItem("forumPosts")) {
+    // List of posts
+    localStorage.setItem("forumPosts", JSON.stringify([]))
+}
+if (!localStorage.getItem("userInterests")) {
+    // List of user selected interests
+    localStorage.setItem("userInterests", JSON.stringify([]))
+}

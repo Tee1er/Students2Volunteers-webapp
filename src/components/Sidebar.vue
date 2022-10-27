@@ -1,10 +1,22 @@
 <script>
+
+import SettingsModal from "./SettingsModal.vue";
+
 export default {
+    data() {
+        return {
+            showSettings: false
+        }
+    },
+    components: {
+        SettingsModal
+    }
 }
+
 </script>
 
 <template>
-    <div class="root">
+    <div class="root sidebar">
         <img class="sidebar-logo" src="../assets/logo-transparent-outline.png">
         <hr>
         <div class="links">
@@ -14,11 +26,11 @@ export default {
             </section>
             <section class="post">
                 <ion-icon name="document-text"></ion-icon>
-                <router-link to="post">Post</router-link>
+                <router-link to="/post">Post</router-link>
             </section>
             <section class="forum">
                 <ion-icon name="chatbubbles"></ion-icon>
-                <router-link to="forum">Forum</router-link>
+                <router-link to="/forum">Forum</router-link>
             </section>
             <section class="blog">
                 <ion-icon name="newspaper"></ion-icon>
@@ -28,21 +40,25 @@ export default {
                 <ion-icon name="call"></ion-icon>
                 <router-link to="">Contact</router-link>
             </section>
-            <section class="profile">
-                <ion-icon name="person-circle"></ion-icon>
-                <router-link to="">Profile</router-link>
+            <section class="settings">
+                <ion-icon name="settings"></ion-icon>
+                <button @click="showSettings = !showSettings">Settings</button>
             </section>
+
+            <SettingsModal v-if="showSettings" @closeModal="showSettings = false" />
         </div>
     </div>
 </template>
 
 <style scoped>
-.root {
+.root.sidebar {
     background: var(--light);
     border: 1px solid var(--gray);
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    /* Override the margin set in App.vue */
+    margin: 0;
 }
 
 .root section {
@@ -53,23 +69,33 @@ export default {
     border-radius: 0.25rem;
 }
 
-.sidebar ion-icon {
+section ion-icon {
     font-size: 1.5rem;
 }
 
-a {
+a,
+button {
     margin-left: 0.75rem;
     text-decoration: none;
     color: var(--dark);
     font-weight: 700;
+    font-family: "Inter";
 }
 
-.sidebar section:hover {
+button {
+    font-size: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+
+section:hover {
     background: var(--light-blue);
     transition: 0.5s;
 }
 
-.sidebar section:hover * {
+section:hover * {
     color: var(--dark-blue);
     transition: 0.5s;
 }
