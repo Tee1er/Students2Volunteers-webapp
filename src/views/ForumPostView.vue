@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-    <div class="root">
+    <div class="root view">
         <h1>{{ post.name }}</h1>
         <p>{{ post.author }}</p>
         <hr>

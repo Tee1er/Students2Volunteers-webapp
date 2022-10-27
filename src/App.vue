@@ -28,7 +28,7 @@ hr {
   border: 1px solid var(--gray);
 }
 
-.root {
+.view {
   margin: 2rem;
 }
 </style>

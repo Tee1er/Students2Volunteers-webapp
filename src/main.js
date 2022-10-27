@@ -48,3 +48,8 @@ if (!localStorage.getItem("userInterests")) {
     // List of user selected interests
     localStorage.setItem("userInterests", JSON.stringify([]))
 }
+
+if (!localStorage.getItem("opportunities")) {
+    // List of posts
+    localStorage.setItem("opportunities", JSON.stringify([]))
+}

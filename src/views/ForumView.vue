@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-    <div class="root">
+    <div class="root view">
         <h1>Forum </h1>
         <hr>
         <div>

@@ -44,7 +44,7 @@ export default {
 </script>
 
 <template>
-    <div class="root">
+    <div class="root view">
         <h1>Post an opportunity</h1>
         <hr>
         <form>

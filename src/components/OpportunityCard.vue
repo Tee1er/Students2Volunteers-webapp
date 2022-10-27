@@ -49,7 +49,7 @@ p {
     border: 1px solid var(--gray);
     display: flex;
     padding: 2rem;
-    margin: 2rem;
-    max-height: 20rem;
+    min-width: 0;
+    /* max-height: 20rem; */
 }
 </style>

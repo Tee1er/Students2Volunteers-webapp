@@ -32,7 +32,7 @@ export default {
 </script>
 
 <template>
-    <div class="root">
+    <div class="root view">
         <router-link to="/forum">
             &lt; Back</router-link>
         <h1>New forum post</h1>

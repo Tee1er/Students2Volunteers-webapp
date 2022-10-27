@@ -14,21 +14,43 @@ export default {
     },
     methods: {
         reccomendOpportunities() {
+            let reccomendations = []
 
+            for (let i = 0; i < this.opportunities.length; i++) {
+                let score = 0;
+                let opportunity = this.opportunities[i];
+
+                for (let j = 0; j < opportunity.interests.length; j++) {
+                    let interest = opportunity.interests[j];
+
+                    if (this.userInterests.includes(interest)) {
+                        score += 10;
+                    }
+                }
+                reccomendations.push({ index: i, score });
+            }
+            // Sort the reccomendations by score
+            reccomendations.sort((a, b) => a.score - b.score);
+
+            // Get the top 10 reccomendations
+            return reccomendations.slice(0, 10)
         }
+    },
+    created() {
+        this.reccomendations = this.reccomendOpportunities();
     }
 }
 </script>
 
 <template>
-    <div class="root">
+    <div class="root view">
         <div class="content">
             <h1>Recommended opportunities</h1>
             <hr>
-            <div v-for="opportunity in reccomendations">
-                <OpportunityCard :title="opportunity.title" :organizer="opportunity.organizer"
-                    :location="opportunity.location" :date="opportunity.date" :interests="opportunity.interests"
-                    :imageURL="opportunity.imageURL" />
+            <div v-for="n in reccomendations.length">
+                <OpportunityCard :title="this.opportunities[n - 1].title" :organizer="opportunities[n - 1].organizer"
+                    :location="opportunities[n - 1].location" :date="new Date(opportunities[n - 1].date)"
+                    :interests="opportunities[n - 1].interests" :imageURL="opportunities[n - 1].imageURL" />
             </div>
         </div>
         <div class="right-sidebar">
@@ -41,8 +63,10 @@ export default {
                     >= 3 ? "Edit" : "Add"
             }}</button>
             <!--Todo: make it so that you don't have to reload the page to update the list of interests-->
+            <!--this is so bad, tempororary fix: reloads the page so that the list of interests updates, thankfully not too noticeable :)-->
             <InterestsModal v-if="showInterestsModal" @closeModal="() => {
                 showInterestsModal = false
+                this.$router.go()
             }" />
         </div>
     </div>
