@@ -81,7 +81,6 @@ export default {
 </template>
 
 <style scoped>
-/* Style checkboxes */
 form div {
     display: flex;
     flex-direction: column;
@@ -89,6 +88,7 @@ form div {
     height: 25rem;
 }
 
+/* Style checkboxes */
 .checkbox-group {
     border: 1px solid var(--gray);
     margin: 0.2rem;

@@ -25,9 +25,11 @@ export default {
         <div class="card">
             <h1>Add or remove interests</h1>
             <hr>
-            <div v-for="interest of allInterests">
-                <input type="checkbox" :id="interest" :value="interest" v-model="userInterests">
-                <label :for="interest">#{{ interest }}</label>
+            <div>
+                <section v-for="interest of allInterests" class="checkbox-group">
+                    <input type="checkbox" :id="interest" :value="interest" v-model="userInterests">
+                    <label :for="interest">#{{ interest }}</label>
+                </section>
             </div>
             <button @click="$emit('closeModal')">Close</button>
         </div>
@@ -35,6 +37,50 @@ export default {
 </template>
 
 <style scoped>
+button {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 2rem;
+}
+
+button:hover {
+    background-color: var(--dark-blue);
+    color: var(--light);
+    transition: 0.5s;
+}
+
+.checkbox-group {
+    border: 1px solid var(--gray);
+    margin: 0.2rem;
+    border-radius: 0.25rem;
+    padding: 0.15rem;
+}
+
+.card>div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 25rem;
+}
+
+.checkbox-group label {
+    margin-left: 0.2rem;
+}
+
+input[type=checkbox] {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+input[type=checkbox]:checked {
+    accent-color: var(--dark-blue);
+}
+
 .card {
     background: var(--light);
     border: 1px solid var(--gray);

@@ -57,9 +57,7 @@ export default {
         <div class="right-sidebar">
             <h2>My interests</h2>
             <hr />
-            <div v-for="interest in userInterests" :key="interest">
-                <p>#{{ interest }}</p>
-            </div>
+            <p v-for="interest in userInterests" :key="interest">#{{ interest }}</p>
             <button @click="showInterestsModal = true">{{ userInterests.length
                     >= 3 ? "Edit" : "Add"
             }}</button>
@@ -76,6 +74,14 @@ export default {
 <style scoped>
 .opportunity-container {
     margin-top: 1rem;
+}
+
+.right-sidebar>p {
+    border: 1px solid var(--gray);
+    border-radius: 0.25rem;
+    padding: 0.15rem 0.5rem;
+    display: block;
+    margin: 0.5rem 0;
 }
 
 /* Apply this to all buttons */

@@ -20,7 +20,7 @@ export default {
             <div class="details-container">
                 <section>
                     <p>Date</p>
-                    <h3>{{ date }}</h3>
+                    <h3>{{ date.toDateString() }}</h3>
                 </section>
                 <section>
                     <p>Location</p>
@@ -29,9 +29,7 @@ export default {
             </div>
             <hr>
             <p>Interests</p>
-            <ul v-for="interest in interests">
-                <li>{{ interest }}</li>
-            </ul>
+            <section class="interest" v-for="interest in interests">#{{ interest }}</section>
         </div>
         <img class="opportunity-image" :src="imageURL" />
 
@@ -42,6 +40,28 @@ export default {
 p {
     font-weight: 600;
     color: var(--less-dark)
+}
+
+section {
+    border: 1px solid var(--gray);
+    margin-top: 0.2rem;
+    border-radius: 0.25rem;
+    padding: 0.15rem 0.5rem;
+    display: block;
+}
+
+.details-container {
+    display: flex;
+    flex-basis: 1;
+}
+
+.details-container section>* {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.details-container section+section {
+    margin-left: 1rem;
 }
 
 .root {
