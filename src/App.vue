@@ -13,7 +13,7 @@ export default {
 <template>
   <div id="app">
     <Sidebar class="sidebar" />
-    <router-view />
+    <router-view class="viewport" />
   </div>
 </template>
 
@@ -22,6 +22,16 @@ export default {
   display: flex;
   height: 100%;
   min-width: 100vw;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+}
+
+.viewport {
+  overflow: scroll;
+  width: 100%;
 }
 
 hr {

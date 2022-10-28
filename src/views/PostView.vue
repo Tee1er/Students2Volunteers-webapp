@@ -59,12 +59,21 @@ export default {
             <label>Date:</label>
             <input name="date" type="date" v-model="date" @blur="() => this.date = new Date(this.date)" />
             <label>Image URL</label>
+            <p>Enter in the URL for the image to displayed with your opportunity.</p>
             <input type="url" v-model="imageURL" />
-            <p>Interests</p>
-            <div v-for="interest of allInterests" :key="interest">
-                <input type="checkbox" :id="interest" :value="interest" v-model="selectedInterests">
-                <label :for="interest">#{{ interest }}</label>
+            <hr>
+            <label>Interests</label>
+            <p>Select interests for your opportunity below. </p>
+            <div>
+                <section v-for="interest of allInterests" :key="interest" class="checkbox-group">
+
+                    <label><input type="checkbox" :id="interest" :value="interest" v-model="selectedInterests" />
+                        #{{ interest }}
+                    </label>
+                </section>
             </div>
+
+            <hr>
 
             <input type="submit" value="Submit" @click="submit" />
         </form>
@@ -72,5 +81,79 @@ export default {
 </template>
 
 <style scoped>
+/* Style checkboxes */
+form div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 25rem;
+}
 
+.checkbox-group {
+    border: 1px solid var(--gray);
+    margin: 0.2rem;
+    border-radius: 0.25rem;
+    padding: 0.15rem;
+}
+
+.checkbox-group label {
+    margin-left: 0.2rem;
+}
+
+input[type=checkbox] {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+input[type=checkbox]:checked {
+    accent-color: var(--dark-blue);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="url"] {
+    display: block;
+    padding: 0.25rem;
+    width: 50%;
+    margin-left: 0.25rem;
+    border: 1px solid var(--gray);
+    font-family: inherit;
+}
+
+form>label {
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: 700;
+}
+
+form hr {
+    display: block;
+    margin: 1rem 0;
+}
+
+p {
+    font-size: 0.75rem;
+}
+
+.view {
+    padding: 0.25rem;
+    overflow-x: hidden;
+}
+
+input[type=submit] {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 2rem;
+}
+
+input[type=submit]:hover {
+    background-color: var(--dark-blue);
+    color: var(--light);
+    transition: 0.5s;
+}
 </style>

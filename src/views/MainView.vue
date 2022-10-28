@@ -47,10 +47,11 @@ export default {
         <div class="content">
             <h1>Recommended opportunities</h1>
             <hr>
-            <div v-for="n in reccomendations.length">
-                <OpportunityCard :title="this.opportunities[n - 1].title" :organizer="opportunities[n - 1].organizer"
-                    :location="opportunities[n - 1].location" :date="new Date(opportunities[n - 1].date)"
-                    :interests="opportunities[n - 1].interests" :imageURL="opportunities[n - 1].imageURL" />
+            <div class="opportunity-container">
+                <OpportunityCard v-for="n in reccomendations.length" :title="this.opportunities[n - 1].title"
+                    :organizer="opportunities[n - 1].organizer" :location="opportunities[n - 1].location"
+                    :date="new Date(opportunities[n - 1].date)" :interests="opportunities[n - 1].interests"
+                    :imageURL="opportunities[n - 1].imageURL" />
             </div>
         </div>
         <div class="right-sidebar">
@@ -73,6 +74,10 @@ export default {
 </template>
 
 <style scoped>
+.opportunity-container {
+    margin-top: 1rem;
+}
+
 /* Apply this to all buttons */
 
 button {
@@ -89,7 +94,7 @@ button {
 button:hover {
     background-color: var(--dark-blue);
     color: var(--light);
-
+    transition: 0.5s;
 }
 
 .root {
@@ -99,7 +104,7 @@ button:hover {
 }
 
 .content {
-    flex-basis: 80%;
+    flex-basis: 75%;
 }
 
 .right-sidebar {
@@ -107,6 +112,6 @@ button:hover {
     border: 1px solid var(--gray);
     padding: 2rem;
     margin-left: 2rem;
-    flex-basis: 20%;
+    flex-basis: 25%;
 }
 </style>
