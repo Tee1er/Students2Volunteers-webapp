@@ -31,7 +31,9 @@ export default {
             <p>Interests</p>
             <section class="interest" v-for="interest in interests">#{{ interest }}</section>
         </div>
-        <img class="opportunity-image" :src="imageURL" />
+        <div class="image-container">
+            <img :src="imageURL" />
+        </div>
 
     </div>
 </template>
@@ -42,7 +44,20 @@ p {
     color: var(--less-dark)
 }
 
-section {
+.image-container {
+    max-height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-height: 20rem;
+    overflow-y: hidden;
+    border-radius: 0.25rem;
+}
+
+.interest {
     border: 1px solid var(--gray);
     margin-top: 0.2rem;
     border-radius: 0.25rem;

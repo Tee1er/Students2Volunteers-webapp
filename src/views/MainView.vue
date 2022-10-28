@@ -48,10 +48,10 @@ export default {
             <h1>Recommended opportunities</h1>
             <hr>
             <div class="opportunity-container">
-                <OpportunityCard v-for="n in reccomendations.length" :title="this.opportunities[n - 1].title"
-                    :organizer="opportunities[n - 1].organizer" :location="opportunities[n - 1].location"
-                    :date="new Date(opportunities[n - 1].date)" :interests="opportunities[n - 1].interests"
-                    :imageURL="opportunities[n - 1].imageURL" />
+                <OpportunityCard class="opportunity-card" v-for="n in reccomendations.length"
+                    :title="this.opportunities[n - 1].title" :organizer="opportunities[n - 1].organizer"
+                    :location="opportunities[n - 1].location" :date="new Date(opportunities[n - 1].date)"
+                    :interests="opportunities[n - 1].interests" :imageURL="opportunities[n - 1].imageURL" />
             </div>
         </div>
         <div class="right-sidebar">
@@ -74,6 +74,10 @@ export default {
 <style scoped>
 .opportunity-container {
     margin-top: 1rem;
+}
+
+.opportunity-card {
+    margin-bottom: 2rem;
 }
 
 .right-sidebar>p {

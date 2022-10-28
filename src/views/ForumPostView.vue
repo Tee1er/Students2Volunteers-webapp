@@ -24,6 +24,8 @@ export default {
 
 <template>
     <div class="root view">
+        <router-link to="/forum" class="back">
+            ◁ Back</router-link>
         <h1>{{ post.name }}</h1>
         <p>{{ post.author }}</p>
         <hr>
@@ -36,8 +38,8 @@ export default {
         <ForumPostReplyForm :index="this.$route.params.index" />
 
         <div v-for="reply in post.replies">
-            <p>{{ reply.author }}</p>
-            <p>{{ reply.content }}</p>
+            <p class="author">{{ reply.author }}</p>
+            <p class="content">{{ reply.content }}</p>
             <hr>
         </div>
 
@@ -45,5 +47,19 @@ export default {
 </template>
 
 <style scoped>
+.back {
+    color: var(--dark);
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 0.25rem;
+}
 
+.view .author {
+    font-weight: bold;
+}
+
+.back:hover {
+    text-decoration: underline;
+    transition: 0.5s;
+}
 </style>
