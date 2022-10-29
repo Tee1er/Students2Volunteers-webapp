@@ -32,10 +32,10 @@ export default {
                 <ion-icon name="chatbubbles"></ion-icon>
                 <router-link to="/forum">Forum</router-link>
             </section>
-            <section class="blog">
+            <!-- <section class="blog">
                 <ion-icon name="newspaper"></ion-icon>
                 <router-link to="">Blog posts</router-link>
-            </section>
+            </section> -->
             <section class="contact">
                 <ion-icon name="call"></ion-icon>
                 <router-link to="">Contact</router-link>
